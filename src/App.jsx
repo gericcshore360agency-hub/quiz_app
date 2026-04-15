@@ -1,0 +1,31 @@
+import { Navigate, Route, Routes } from 'react-router-dom'
+import './App.css'
+import Navbar from './components/Navbar'
+import Home from './content/Home'
+import About from './content/About'
+import Quiz from './content/Quiz'
+import Exam from './content/Exam'
+
+function App() {
+  return (
+    <div className="app-shell">
+      <Navbar />
+
+      <main className="app-main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/exam" element={<Exam />} />
+          
+          {/* Redirect any unknown routes to home */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </main>
+
+
+    </div>
+  )
+}
+
+export default App
